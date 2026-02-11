@@ -26,13 +26,35 @@ model = load_model()
 # Create input fields as a dictionary
 st.subheader("Patient Information")
 
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    distance = st.number_input('Distance (cm)', min_value=0.0, max_value=70.0, value=3.585)
+
+with col2:
+    pressure = st.number_input('Pressure (mmHg)', min_value=0.0, max_value=2.0, value=2.0)
+
+with col3:
+    hrv = st.number_input('Heart Rate Variability (ms)', min_value=0.0, max_value=125.0, value=112.170)
+
+col4, col5, col6 = st.columns(3)
+
+with col4:
+    sugar = st.number_input('Sugar Level (mg/dL)', min_value=10.0, max_value=180.0, value=24.0)
+
+with col5:
+    spo2 = st.number_input('SpO2 (%)', min_value=60.0, max_value=100.0, value=67.0)
+
+with col6:
+    accelerometer = st.number_input('Accelerometer (m/s²)', min_value=0.0, max_value=1.0, value=1.0)
+
 features_dict = {
-    'Distance': st.number_input('Distance (cm)', min_value=0.0, max_value=70.0, value=3.585),
-    'Pressure': st.number_input('Pressure (mmHg)', min_value=0.0, max_value=2.0, value=2.0),
-    'HRV': st.number_input('Heart Rate Variability (ms)', min_value=0.0, max_value=125.0, value=112.170),
-    'Sugar level': st.number_input('Sugar Level (mg/dL)', min_value=10.0, max_value=180.0, value=24.0),
-    'SpO2': st.number_input('SpO2 (%)', min_value=60.0, max_value=100.0, value=67.0),
-    'Accelerometer': st.number_input('Accelerometer (m/s²)', min_value=0.0, max_value=1.0, value=1.0),
+    'Distance': distance,
+    'Pressure': pressure,
+    'HRV': hrv,
+    'Sugar level': sugar,
+    'SpO2': spo2,
+    'Accelerometer': accelerometer,
 }
 
 # Display the input dictionary
