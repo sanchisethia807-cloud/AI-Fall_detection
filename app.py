@@ -58,8 +58,8 @@ features_dict = {
 }
 
 # Display the input dictionary
-st.subheader("Input Data Dictionary")
-st.json(features_dict)
+# st.subheader("Input Data Dictionary")
+# st.json(features_dict)
 
 # Make prediction
 if st.button("Predict Fall Risk", type="primary"):
